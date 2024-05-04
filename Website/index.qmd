@@ -1,0 +1,43 @@
+---
+about:
+  template: solana
+  id: about-block
+  image: "img/bridge2.jpg"
+  
+---
+
+::: {#about-block}
+:::
+
+ Colin Kuehl
+ 
+Assistant Professor
+
+Department of Political Science
+
+Institute for the Study of the Environment Sustainability and Energy
+
+ Northern Illinois University
+
+I am a political scientist interested in why important actors, like countries and people, behave the way they do toward the environment. My research explores this broad question across different political domains and levels of analysis, from motivating individuals to conserve water, to what makes countries more likely to ratify multi-lateral environmental agreements. 
+
+
+This website gives a brief overview of my work but I'm admittedly bad at updating it, but for the most up to date information please send me an [email](mailto:ckuehl@niu.edu). 
+
+
+
+---
+links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/cpkuehl
+    - icon: github
+      text: Github
+      href: https://github.com/marvinschmitt
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
+    - icon: envelope
+      text: Email
+      href: "mailto:mail.marvinschmitt@gmail.com"  
+---
