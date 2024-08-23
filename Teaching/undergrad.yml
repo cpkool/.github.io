@@ -1,0 +1,17 @@
+  
+- title: "Sustainability Governance: The Politics of Environmental Solutions"
+  description: "Environmental Studies course uses an interdisciplinary approach to understand the social basis of environmental problems and solutions. Focus on policy making in the United States with an introduction to law as well as international and comparative environmental politics."
+  university: Northern Illinois University
+  number: ENVS 304
+  semester:
+    - name: "Fall 2023"
+      url: syllabi/syll304.pdf
+
+- title: "Global Environmental Politics"
+  description: "Survey of the most salient issues in Global Environmental Politics with a focus on varying governance structures and contemporary debates."
+  university: Northern Illinois University
+  number: POLS 385/ENVS 385 
+  semester:
+    - name: "Spring 2024"
+      url: syllabi/syll385.pdf
+

@@ -1,0 +1,34 @@
+- title: Introductory Analysis of Political Data
+  description: "An introduction to quantitative methodology used in political research. Covers basic probability and statistics through multivariate regression with a focus on the use of these methods in the field of political science. Much of the course is focused on learning by doing including use of the R programming language"
+  university: Northern Illinois University
+  number: POLS 641
+  semester:
+  - name: Fall 2021
+    url: syllabi/POLS641_Syllabus_Fall2021.pdf
+
+- title: "International Political Economy"
+  description: "A systematic introduction to the political economy of international relations. Students will be introduced to the core issues of the subfield such as trade, finance, governance, development, the environment"
+  university: Northern Illinois University
+  number: POLS 684
+  semester:
+  - name: Spring 2023
+    url: syllabi/syll684.pdf
+  
+
+- title: Intermediate Analysis of Political Data
+  description: "Regression analysis techniques in political research. Simple bivariate statistical models through structural modeling."
+  university: Northern Illinois University
+  number: POLS 642
+  semester:
+  - name: Spring 2024
+    url: syllabi/syll642.pdf
+  
+- title: Theories of International Relations
+  description: "The course is a graduate-level survey of International Relations (IR) as a disciplinary subfield of Political Science. Centrally, the course explores the evolution of and dialogue between central paradigmatic traditions in IR theory. Also serves as the foundation for preparation for the Ph.D. candidacy exam in international relations."
+  university: Northern Illinois University
+  number: POLS 680
+  semester:
+  - name: Fall 2021
+    url: syllabi/syll680.pdf
+
+

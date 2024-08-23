@@ -1,0 +1,29 @@
+---
+title: "Teaching"
+listing:
+  - id: Undergraduate
+    contents: undergrad.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+  - id: Graduate
+    contents: grad.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+page-layout: full
+toc: true
+toc-location: right
+title-block-banner: "$mblue"
+
+---
+
+## Graduate Courses
+
+:::{#Graduate}
+:::
+
+## Undergraduate Courses
+
+:::{#Undergraduate}
+:::
+
+---
