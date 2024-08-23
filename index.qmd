@@ -1,0 +1,36 @@
+---
+about:
+  template: solana
+  id: about-block
+  image: "img/bridge2.jpg"
+  image-width: 45% 
+  image-shape: rounded
+title: "Colin Kuehl<br>"
+subtitle: "Environmental Politics <br><br>Conservation, Cooperation, Sustainability"
+---
+
+::: {#about-block}
+Dr. Colin Kuehl is an Assistant Professor in the Department of[Political Science](www.polisci.niu.edu) and [Institute for the Study of the Environment Sustainability and Energy](https://www.niu.edu/clas/ese/index.shtml) at [Northern Illinois University](www.niu.edu). His scholarship focuses why important actors, like countries and people, behave the way they do toward the environment. He explores this broad question across different political domains and levels of analysis, from motivating individuals to conserve water to what makes countries more likely to ratify multi-lateral environmental agreements, using a wide variety of methodological approachs. His work has been published in [Nature Sustainability](https://www.nature.com/articles/s41893-021-00687-6), [The Journal of Policy Analysis and Management](https://huskiecommons.lib.niu.edu/niubib/526/), [Science Communication](https://journals.sagepub.com/doi/abs/10.1177/10755470231153634), and other highly regarded outlets. 
+
+<!--
+Colin is also an accomplished teacher and mentor. 
+-->
+
+
+Colin was born and raised in small-town NE Oregon and received his PhD from the University of California, Santa Barbara in 2017. In his free time he likes to drink coffee, watch soccer (#ynwa), and go on road trips with with his wife, two daughters, and dog. 
+ 
+:::
+
+
+
+
+
+---
+links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/cpkuehl
+    - icon: envelope
+      text: Email
+      href: "mailto:ckuehl@niu.edu"  
+---
