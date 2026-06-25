@@ -1,0 +1,53 @@
+// =============================================================
+// THEME MIXINS: Deep Green & Blue
+// Imported into the "scss:mixins" layer by each html/styles.scss
+// wrapper. Depends on variables from _theme-defaults.scss.
+//
+// NOTE: every mixin is prefixed "theme-" on purpose. Bootstrap
+// itself ships mixins named gradient-bg, focus-ring, and
+// button-variant — an unprefixed mixin of the same name here
+// would *replace* Bootstrap's version everywhere Bootstrap calls
+// it internally, breaking compilation (this is what caused the
+// "Missing argument $bg-active" error from _buttons.scss).
+// =============================================================
+
+@mixin theme-gradient-bg($from: $color-bg-elevated, $to: $color-surface-alt, $angle: 135deg) {
+  background: linear-gradient($angle, $from 0%, $to 100%);
+}
+
+@mixin theme-focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px $color-focus-ring;
+}
+
+@mixin theme-button-variant($bg, $bg-hover, $bg-active, $text: $color-text-inverse) {
+  background-color: $bg;
+  color: $text;
+  border: 1px solid transparent;
+  transition: background-color $transition-fast, transform $transition-fast;
+
+  &:hover {
+    background-color: $bg-hover;
+  }
+
+  &:active {
+    background-color: $bg-active;
+    transform: translateY(1px);
+  }
+
+  &:focus-visible {
+    @include theme-focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin theme-card {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}

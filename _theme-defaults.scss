@@ -1,0 +1,139 @@
+// =============================================================
+// THEME DEFAULTS: Deep Green & Blue
+// Sass variables only. Imported into the "scss:defaults" layer
+// by each html/styles.scss wrapper. Edit colors here.
+//
+// NOTE: Bootstrap itself defines real variables named $spacers
+// and $theme-colors. We deliberately use $theme-spacers and
+// $theme-colors-custom below instead of redeclaring those, so we
+// don't silently rewrite Bootstrap's own spacing scale / utility
+// classes site-wide.
+// =============================================================
+
+// 1. Color Palette -------------------------------------------------
+
+// Green palette (primary)
+$green-900: #06281f;
+$green-800: #0b3d2e;
+$green-700: #114b39;
+$green-600: #1b5e46;
+$green-500: #2d7a5f;
+$green-400: #3f9b78;
+$green-300: #62b899;
+$green-200: #94d4bb;
+$green-100: #c8ecdc;
+
+// Blue palette (secondary / accent)
+$blue-900: #021c33;
+$blue-800: #03304d;
+$blue-700: #054169;
+$blue-600: #075a8c;
+$blue-500: #0b7bb8;
+$blue-400: #1ea2dd;
+$blue-300: #5cc1e8;
+$blue-200: #9bdcf0;
+$blue-100: #d3f0fa;
+
+// Neutrals (surfaces, text, borders on a dark background)
+$gray-950: #0a0e0d;
+$gray-900: #111614;
+$gray-800: #1b2220;
+$gray-700: #2a332f;
+$gray-600: #404e48;
+$gray-500: #5c6d65;
+$gray-400: #8a9a92;
+$gray-300: #b6c4bd;
+$gray-200: #dce5e0;
+$gray-100: #f1f5f3;
+
+// Status colors
+$success: $green-400;
+$info: $blue-400;
+$warning: #d9a441;
+$danger: #d9534f;
+
+// 2. Semantic tokens -------------------------------------------------
+
+$color-bg: $gray-950;
+$color-bg-elevated: $green-900;
+$color-surface: $green-800;
+$color-surface-alt: $blue-800;
+
+$color-primary: $green-500;
+$color-primary-hover: $green-400;
+$color-primary-active: $green-600;
+
+$color-secondary: $blue-500;
+$color-secondary-hover: $blue-400;
+$color-secondary-active: $blue-600;
+
+$color-accent: $blue-400;
+
+$color-text: $gray-100;
+$color-text-muted: $gray-400;
+$color-text-inverse: $gray-950;
+
+$color-border: $gray-700;
+$color-border-light: $gray-600;
+
+$color-link: $blue-300;
+$color-link-hover: $blue-200;
+
+$color-focus-ring: rgba($blue-400, 0.5);
+
+// 3. Typography -------------------------------------------------
+
+$font-family-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+$font-family-heading: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+$font-family-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.75rem;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-base: 1.6;
+$line-height-heading: 1.25;
+
+// 4. Spacing, radius, shadow, motion -------------------------------------------------
+
+// Our own spacing scale for our own components/utilities. Named
+// "theme-spacers" (not "spacers") so it never overwrites
+// Bootstrap's real $spacers map or its generated .m-*/.p-* classes.
+$theme-spacers: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 2rem,
+  6: 3rem,
+  7: 4rem,
+);
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-pill: 999px;
+
+$shadow-sm: 0 1px 3px rgba(#000, 0.4);
+$shadow-md: 0 4px 12px rgba(#000, 0.45);
+$shadow-lg: 0 12px 32px rgba(#000, 0.5);
+$shadow-glow: 0 0 24px rgba($blue-400, 0.25);
+
+$transition-fast: 120ms ease-in-out;
+$transition-base: 200ms ease-in-out;
+
+// Named map for utility-class generation in the rules layer.
+// Named "-custom" so it never collides with Bootstrap's own
+// $theme-colors map (which Pulse/Bootstrap already populate).
+$theme-colors-custom: (
+  "accent": $color-accent,
+  "muted": $color-text-muted,
+);

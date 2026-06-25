@@ -1,0 +1,244 @@
+// =============================================================
+// THEME RULES: Deep Green & Blue
+// Imported into the "scss:rules" layer by each html/styles.scss
+// wrapper. Depends on _theme-defaults.scss and _theme-mixins.scss.
+// =============================================================
+
+// 1. Base / Reset -------------------------------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-heading;
+  color: $color-text;
+  margin: 0 0 map-get($theme-spacers, 3);
+}
+
+h1 { font-size: $font-size-3xl; }
+h2 { font-size: $font-size-2xl; }
+h3 { font-size: $font-size-xl; }
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    @include theme-focus-ring;
+  }
+}
+
+::selection {
+  background-color: $color-secondary;
+  color: $color-text-inverse;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $color-bg;
+}
+::-webkit-scrollbar-thumb {
+  background: $color-surface-alt;
+  border-radius: $radius-pill;
+}
+
+// 2. Layout helpers -------------------------------------------------
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg;
+}
+
+.hero {
+  @include theme-gradient-bg($green-900, $blue-900);
+  padding: map-get($theme-spacers, 7) map-get($theme-spacers, 4);
+  border-bottom: 1px solid $color-border;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 map-get($theme-spacers, 4);
+}
+
+// 3. Components -------------------------------------------------
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: map-get($theme-spacers, 3) map-get($theme-spacers, 4);
+  background-color: $color-bg-elevated;
+  border-bottom: 1px solid $color-border;
+
+  .navbar-brand {
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    font-size: $font-size-lg;
+  }
+
+  .navbar-links a {
+    margin-left: map-get($theme-spacers, 4);
+    color: $color-text-muted;
+
+    &:hover,
+    &.active {
+      color: $color-accent;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: map-get($theme-spacers, 2) map-get($theme-spacers, 4);
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+
+.btn-primary {
+  @include theme-button-variant($color-primary, $color-primary-hover, $color-primary-active);
+}
+
+.btn-secondary {
+  @include theme-button-variant($color-secondary, $color-secondary-hover, $color-secondary-active);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: $color-text;
+  border: 1px solid $color-border-light;
+  transition: border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
+
+.card {
+  @include theme-card;
+  padding: map-get($theme-spacers, 4);
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px map-get($theme-spacers, 2);
+  border-radius: $radius-pill;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  background-color: rgba($color-accent, 0.15);
+  color: $color-accent;
+}
+
+.alert {
+  padding: map-get($theme-spacers, 3);
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  font-size: $font-size-sm;
+
+  &.alert-success {
+    background-color: rgba($success, 0.12);
+    border-color: rgba($success, 0.35);
+    color: $success;
+  }
+
+  &.alert-info {
+    background-color: rgba($info, 0.12);
+    border-color: rgba($info, 0.35);
+    color: $info;
+  }
+
+  &.alert-warning {
+    background-color: rgba($warning, 0.12);
+    border-color: rgba($warning, 0.35);
+    color: $warning;
+  }
+
+  &.alert-danger {
+    background-color: rgba($danger, 0.12);
+    border-color: rgba($danger, 0.35);
+    color: $danger;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: map-get($theme-spacers, 2) map-get($theme-spacers, 3);
+  background-color: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text;
+  font-size: $font-size-base;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-accent;
+    @include theme-focus-ring;
+  }
+}
+
+// 4. Utility classes -------------------------------------------------
+// Only "accent" and "muted" here — Bootstrap already generates
+// .text-primary/.bg-primary/.text-success/etc. from its own
+// $theme-colors map, so we don't redeclare those class names.
+
+@each $name, $value in $theme-colors-custom {
+  .text-#{$name} {
+    color: $value;
+  }
+  .bg-#{$name} {
+    background-color: $value;
+  }
+}
+
+// Extra spacing steps (6, 7) beyond Bootstrap's stock 0-5 scale.
+// Deliberately skips 0-5 so we don't redefine Bootstrap's own
+// .m-*/.p-*/.mt-*/.mb-* utility classes with different values.
+@each $key, $value in $theme-spacers {
+  @if $key == 6 or $key == 7 {
+    .m-#{$key} { margin: $value; }
+    .p-#{$key} { padding: $value; }
+    .mt-#{$key} { margin-top: $value; }
+    .mb-#{$key} { margin-bottom: $value; }
+  }
+}

@@ -1,0 +1,31 @@
+---
+title: "Teaching"
+listing:
+  - id: Undergraduate Courses
+    contents: undergrad.yml
+    sort: "date desc"
+    template: ./listing.ejs
+  - id: Graduate Courses
+    contents: grad.yml
+    sort: "date desc"
+    template: ./listing.ejs
+page-layout: full
+toc: true
+toc-location: right
+title-block-banner: "$mblue"
+
+---
+
+See below for a list of recently taught courses and their syllabi. 
+
+## Graduate Courses
+
+:::{#Graduate}
+:::
+
+## Undergraduate Courses
+
+:::{#Undergraduate}
+:::
+
+---
