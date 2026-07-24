@@ -2,7 +2,10 @@
 
 # website settings
 website:
-  title: "Colin Kuehl"                                # Your name
+  title: "Colin Kuehl" 
+  google-analytics: "G-8DT4TTTYK2"
+  
+  # Your name
   description: "Associate Professor of Political Science and Environmental Studies"   # A brief slogan (optional)
   image: img/bridge1.png
   
