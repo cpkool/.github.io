@@ -39,10 +39,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cc98bce792cf4752910ca679339a9069.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-06fd5234e8e9982fe58e4738a72dbab4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-47eb6e702268ffa774c448223b5f86b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,7 +85,167 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = true;
+    const darkModeDefault = authorPrefersDark;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -135,6 +297,7 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -162,6 +325,7 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Research</h1>
@@ -181,21 +345,21 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 </header>
 
 
-<div style="text-align: center;">
-<p><a href="https://scholar.google.com/citations?user=be3YYWMAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" title="Google Scholar" style="margin: 0 40px;"><i class="ai ai-google-scholar ai-2x"></i></a> <a href="https://orcid.org/0000-0002-8163-7956" target="_blank" title="ORCID" style="margin: 0 40px;"><i class="ai ai-orcid ai-2x"></i></a> <a href="https://www.researchgate.net/profile/Colin-Kuehl" target="_blank" title="ResearchGate" style="margin: 0 40px;"><i class="ai ai-researchgate ai-2x"></i></a></p>
+<div class="research-links">
+<p><a href="https://scholar.google.com/citations?user=be3YYWMAAAAJ&amp;hl=en&amp;oi=ao" target="_blank"><i class="ai ai-google-scholar ai-lg"></i> Google Scholar</a> <a href="https://orcid.org/0000-0002-8163-7956" target="_blank"><i class="ai ai-orcid ai-lg"></i> ORCID</a> <a href="https://www.researchgate.net/profile/Colin-Kuehl" target="_blank"><i class="ai ai-researchgate ai-lg"></i> ResearchGate</a></p>
 </div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>My research focuses on the politics of environmental behavior across multiple scales and across various issue areas. It applies political science frameworks to understanding the social a causes of environmental problems, focusing on what motivates actors to contribute to environmental protection. It begins with an assumption that we have sufficient scientific knowledge and viable solutions to most environmental challenges, political barriers remain the primary obstacle to progress. I examine these barriers across multiple levels of analysis using rigorous methods, including experiments, text-as-data techniques, and traditional large-N analysis. I also frequently collaborate with scholars in fields such as social psychology, communication, ecology, and geology to address problems more comprehensively. This interdisciplinary approach allows me to bridge academic divides and contribute insights that inform both political scientists and the broader environmental community.</p>
+<p>My research focuses on the politics of environmental behavior across multiple scales and across various issue areas. It applies political science frameworks to understanding the social causes of environmental problems, focusing on what motivates actors to contribute to environmental protection. I start from an assumption that we have sufficient scientific knowledge and viable solutions to most environmental challenges, political barriers remain the primary obstacle to progress. I examine these barriers across multiple levels of analysis using rigorous methods, including experiments, text-as-data techniques, and traditional large-N analysis. I also frequently collaborate with scholars in fields such as social psychology, communication, ecology, and geology to address problems more comprehensively. This interdisciplinary approach allows me to bridge academic divides and contribute insights that inform both political scientists and the broader environmental community.</p>
 <hr>
 </section>
 <section id="recent-publications" class="level2">
 <h2 class="anchored" data-anchor-id="recent-publications">Recent Publications</h2>
 <ul>
-<li><p>2026 “Clinging to Power: Status Threat and Attitudes toward Renewable Energy” Tammie-Louise Finnegan, Cassandra Epping, Nick Florian, and <strong>Colin Kuehl</strong>. <a href="https://doi.org/10.1080/09644016.2025.2604372">Environmental Politics</a></p></li>
-<li><p>2025 “Centering people in restoration messaging increases their likelihood to engage in restoration actions” <strong>Colin Kuehl</strong>, Todd Buck, Christiana Guthrie, Oliver Meyers, Emman Mohammad, Quinn Sedig, Shupei Yuan and Holly P. Jones. 33: e70155. <a href="https://doi.org/10.1111/rec.70155">Restoration Ecology</a></p></li>
-<li><p>2025 “Tweeting to Conserve: An Analysis of Water District Messaging during the California Drought” <strong>Colin Kuehl</strong> in Nic Guehlstorf (ed.) <a href="https://link.springer.com/book/10.1007/978-3-031-90889-7">Environmental Policy Science’s Exploration for Innovative Data</a> Springer</p></li>
-<li><p>2025 “Varied Accounts of Quality and Rigor in Qualitative Research in Political Science” Alesha Porisky, Aarie Glas, and <strong>Colin Kuehl</strong> in Uwe Flick (ed.) <a href="https://us.sagepub.com/en-us/nam/the-sage-handbook-of-qualitative-research-quality/book283878#description">SAGE Handbook of Qualitative Research Quality</a></p></li>
+<li><p>2026 “Clinging to Power: Status Threat and Attitudes toward Renewable Energy.” Tammie-Louise Finnegan, Cassandra Epping, Nick Florian, and <strong>Colin Kuehl</strong>. <em><a href="https://doi.org/10.1080/09644016.2025.2604372">Environmental Politics</a></em>.</p></li>
+<li><p>2025 “Centering people in restoration messaging increases their likelihood to engage in restoration actions.” <strong>Colin Kuehl</strong>, Todd Buck, Christiana Guthrie, Oliver Meyers, Emman Mohammad, Quinn Sedig, Shupei Yuan, and Holly P. Jones. <em><a href="https://doi.org/10.1111/rec.70155">Restoration Ecology</a></em> 33: e70155.</p></li>
+<li><p>2025 “Tweeting to Conserve: An Analysis of Water District Messaging during the California Drought.” <strong>Colin Kuehl</strong>. In Nic Guehlstorf (ed.), <em><a href="https://link.springer.com/book/10.1007/978-3-031-90889-7">Environmental Policy Science’s Exploration for Innovative Data</a></em>. Springer.</p></li>
+<li><p>2025 “Varied Accounts of Quality and Rigor in Qualitative Research in Political Science.” Alesha Porisky, Aarie Glas, and <strong>Colin Kuehl</strong>. In Uwe Flick (ed.), <em><a href="https://us.sagepub.com/en-us/nam/the-sage-handbook-of-qualitative-research-quality/book283878#description">SAGE Handbook of Qualitative Research Quality</a></em>. SAGE.</p></li>
 </ul>
 <p>See CV for a full list of publications.</p>
 </section>
@@ -204,15 +368,15 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 <hr>
 <section id="public-preferences-for-global-cooperation" class="level3">
 <h3 class="anchored" data-anchor-id="public-preferences-for-global-cooperation">Public Preferences for Global Cooperation</h3>
-<p>My book attempts to understand public attitudes around to world toward global environmental cooperation, like the Paris Agreement. While canonical models suggest issues like climate change are the ultimate collective action problem, the public doesn’t seem to think so. A trove of observational and experimental studies show that individuals are overwhelming supportive of cooperative efforts and don’t think about these issues in terms of guarantees of reciprocity. The book takes a deep dive into these issues and tries to understand how individuals around the world can drive more effective global environmental governance.</p>
+<p>My book attempts to understand public attitudes around the world toward global environmental cooperation, like the Paris Agreement. While canonical models suggest issues like climate change are the ultimate collective action problem, the public doesn’t seem to think so. A trove of observational and experimental studies show that individuals are overwhelmingly supportive of cooperative efforts and don’t think about these issues in terms of guarantees of reciprocity. The book takes a deep dive into these issues and tries to understand how individuals around the world can drive more effective global environmental governance.</p>
 </section>
 <section id="understanding-sustainability-communications-using-textual-data" class="level3">
 <h3 class="anchored" data-anchor-id="understanding-sustainability-communications-using-textual-data">Understanding Sustainability Communications using Textual Data</h3>
-<p>Textual data is underutilized in the study of environmental politics. In a series of projects I’m working on with varios co-authors this work uses multiple text-as-data techniques to understand how actors, like local governments and private governance actors,actually communicate about sustainability issues.</p>
+<p>Textual data is underutilized in the study of environmental politics. In a series of projects I’m working on with various co-authors this work uses multiple text-as-data techniques to understand how actors, like local governments and private governance actors,actually communicate about sustainability issues.</p>
 </section>
 <section id="accountability-and-action-in-southeast-asian-environmental-politics" class="level3">
 <h3 class="anchored" data-anchor-id="accountability-and-action-in-southeast-asian-environmental-politics">Accountability and Action in Southeast Asian Environmental Politics</h3>
-<p>Our planet’s path to environmental sustainabilty surely runs through Southeast Asia. No other region in the world better exemplifies the challenges and opportunities</p>
+<p>Our planet’s path to environmental sustainability surely runs through Southeast Asia. No other region in the world better exemplifies the challenges and opportunities of global efforts sustainably manage a wide variety of environmental challenges.</p>
 <p><em>If you are interested in getting involved in these projects or hearing more please do not hesitate to reach out to me</em></p>
 
 
@@ -222,6 +386,19 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -621,6 +798,28 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Colin Kuehl</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Last updated <span id="last-updated"></span></p>
+</div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("last-updated");
+  if (!el) return;
+  var d = new Date(document.lastModified);
+  if (isNaN(d)) return;
+  el.textContent = d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+});
+</script>
 
 
 

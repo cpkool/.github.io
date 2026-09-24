@@ -10,7 +10,7 @@
 // classes site-wide.
 // =============================================================
 
-$color-scheme: dark !default;
+$color-scheme: light;
 
 // 1. Color Palette -------------------------------------------------
 
@@ -56,30 +56,30 @@ $danger: #d9534f;
 
 // 2. Semantic tokens -------------------------------------------------
 
-$color-bg: $gray-950;
+$color-bg: #ffffff;
 $color-bg-elevated: $green-900;
-$color-surface: $green-800;
-$color-surface-alt: $blue-800;
+$color-surface: $gray-100;
+$color-surface-alt: $gray-200;
 
-$color-primary: $green-500;
-$color-primary-hover: $green-400;
-$color-primary-active: $green-600;
+$color-primary: $green-600;
+$color-primary-hover: $green-500;
+$color-primary-active: $green-700;
 
-$color-secondary: $blue-500;
-$color-secondary-hover: $blue-400;
-$color-secondary-active: $blue-600;
+$color-secondary: $blue-600;
+$color-secondary-hover: $blue-500;
+$color-secondary-active: $blue-700;
 
-$color-accent: $blue-400;
+$color-accent: $blue-600;
 
-$color-text: $gray-100;
-$color-text-muted: $gray-400;
-$color-text-inverse: $gray-950;
+$color-text: $gray-900;
+$color-text-muted: $gray-600;
+$color-text-inverse: #ffffff;
 
-$color-border: $gray-700;
-$color-border-light: $gray-600;
+$color-border: $gray-200;
+$color-border-light: $gray-300;
 
-$color-link: $blue-300;
-$color-link-hover: $blue-200;
+$color-link: $blue-600;
+$color-link-hover: $blue-800;
 
 $color-focus-ring: rgba($blue-400, 0.5);
 

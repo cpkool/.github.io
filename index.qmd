@@ -3,7 +3,7 @@ about:
   template: solana
   id: about-block
   image: "img/bridge2.jpg"
-  image-width: 45% 
+  image-width: 52% 
   image-shape: rounded
   links:
     - icon: bluesky
@@ -12,34 +12,94 @@ about:
     - icon: envelope
       text: Email
       href: "mailto:ckuehl@niu.edu"  
+    - icon: file-earmark-person
+      text: CV
+      href: cv/index.qmd
+    - icon: mortarboard
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=be3YYWMAAAAJ&hl=en&oi=ao
 title: "Colin Kuehl<br>"
-subtitle: "Environmental Politics <br><br>Conservation, Cooperation, Sustainability"
+pagetitle: "Environmental Politics | Northern Illinois University"
+description-meta: "Colin Kuehl is an Associate Professor of Political Science at Northern Illinois University who studies the politics of environmental behavior, conservation, and global environmental cooperation."
+subtitle: "Associate Professor of Political Science & Environmental Studies<br>Northern Illinois University<span class='about-tagline'>Conservation, Cooperation, Sustainability</span>"
 ---
 
 ```{=html}
 <style>
-#about-block .about-image {
-  margin-top: 25%;
-  margin-left: 10%;
+/* Wide screens: photo, tagline and profile links stack in the right-hand column.
+   Narrow screens keep Quarto's default stacked layout. */
+.about-side {
+  display: contents;
 }
-#about-block .about-entity {
-  display: flex;
-  flex-direction: column;
+div.quarto-about-solana .about-entity .about-side .about-tagline,
+div.quarto-about-solana .about-entity .about-side .about-links {
+  display: none !important;
 }
-#about-block .about-links {
-  order: 3;
+@media (min-width: 992px) {
+  .about-side {
+    display: block;
+    flex: 0 0 52%;
+    max-width: 52%;
+    margin-top: 5rem;
+    container-type: inline-size;
+  }
+  .about-side img.about-image {
+    display: block;
+    width: 100% !important;
+    margin: 0;
+  }
+  div.quarto-about-solana .about-entity .about-side .about-tagline {
+    display: block !important;
+    margin: 1.25rem 0 0.75rem;
+    /* scales with the column width so it always fits on one line */
+    font-size: min(1.25rem, 5.2cqw);
+    white-space: nowrap;
+    line-height: 1.4;
+  }
+  div.quarto-about-solana .about-entity .about-side .about-links {
+    display: flex !important;
+    margin: 0;
+  }
+  /* hide the originals once copies sit under the photo */
+  .about-entity.has-side .subtitle .about-tagline,
+  .about-entity.has-side .entity-contents > .about-links {
+    display: none;
+  }
+}
+/* fallback if the script does not run: tagline sits under the title */
+.subtitle .about-tagline {
+  display: block;
+  margin-top: 1.2em;
 }
 </style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var entity = document.querySelector(".quarto-about-solana .about-entity");
+  if (!entity) return;
+  var img = entity.querySelector("img.about-image");
+  if (!img) return;
+  var tagline = entity.querySelector(".subtitle .about-tagline");
+  var links = entity.querySelector(".entity-contents > .about-links");
+  var side = document.createElement("div");
+  side.className = "about-side";
+  img.parentNode.insertBefore(side, img);
+  side.appendChild(img);
+  if (tagline) side.appendChild(tagline.cloneNode(true));
+  if (links) side.appendChild(links.cloneNode(true));
+  entity.classList.add("has-side");
+});
+</script>
 ```
 
 ::: {#about-block}
-Dr. Colin Kuehl is an Associate Professor in the Department of [Political Science](www.polisci.niu.edu) and [Institute for the Study of the Environment Sustainability and Energy](https://www.niu.edu/clas/ese/index.shtml) at [Northern Illinois University](www.niu.edu) where is also affiliated with the [Center for Southeast Asian Studies](https://www.niu.edu/clas/cseas/index.shtml).
+Dr. Colin Kuehl is an Associate Professor in the Department of [Political Science](www.polisci.niu.edu) and [Institute for the Study of the Environment Sustainability and Energy](https://www.niu.edu/clas/ese/index.shtml) at [Northern Illinois University](www.niu.edu) where he is also affiliated with the [Center for Southeast Asian Studies](https://www.niu.edu/clas/cseas/index.shtml).
 
 
 
-Dr. Kuehl's scholarship focuses the politics of environmental behavior. He researches broad question across different political domains and levels of analysis, from motivating individuals to conserve water to what makes countries more likely to ratify multi-lateral environmental agreements, using a wide variety of methodological approachs. His work has been published in [Environmental Politics](https://doi.org/10.1080/09644016.2025.2604372),[Nature Sustainability](https://www.nature.com/articles/s41893-021-00687-6), [The Journal of Policy Analysis and Management](https://huskiecommons.lib.niu.edu/niubib/526/), [Science Communication](https://journals.sagepub.com/doi/abs/10.1177/10755470231153634), and other highly regarded outlets. He is currently working on a book project focused on individual attitudes toward global environmental cooperation.
+Dr. Kuehl's scholarship focuses on the politics of environmental behavior. He researches broad questions across different political domains and levels of analysis, from motivating individuals to conserve water to what makes countries more likely to ratify multi-lateral environmental agreements, using a wide variety of methodological approaches. His work has been published in [Environmental Politics](https://doi.org/10.1080/09644016.2025.2604372), [Nature Sustainability](https://www.nature.com/articles/s41893-021-00687-6), [The Journal of Policy Analysis and Management](https://huskiecommons.lib.niu.edu/niubib/526/), [Science Communication](https://journals.sagepub.com/doi/abs/10.1177/10755470231153634), and other highly regarded outlets. He is currently working on a book project focused on individual attitudes toward global environmental cooperation.
 
 For the Spring 2026 semester he was a Visiting Scholar at Northwestern University Department of Political Science and Summer 2026 he was a Visiting Professor at the School of Public Policy at Chiang Mai University in Thailand.
 
-Colin was born and raised in small-town northeast Oregon and received his PhD from the University of California, Santa Barbara in 2017. In his free time he likes to drink coffee, watch soccer (#ynwa), and go on road trips with with his wife, two daughters, and dog.
+Colin was born and raised in small-town northeast Oregon and received his PhD from the University of California, Santa Barbara in 2017. In his free time he likes to drink coffee, watch soccer (#ynwa), and go on road trips with his wife, two daughters, and dog.
 :::
+

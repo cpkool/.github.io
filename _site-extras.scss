@@ -1,0 +1,122 @@
+/* Teaching page: course titles */
+.course-entry .course-title,
+.course-entry .course-title a {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Teaching page: thumbnail beside course text, stacked on small screens */
+.course-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+
+  .logo {
+    flex: 0 0 150px;
+    max-width: 150px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+
+  .body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .course-entry {
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .logo {
+      flex: none;
+    }
+  }
+}
+
+/* Students page: lab logo beside the intro paragraph */
+.lab-intro {
+  --intro-logo-w: 180px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  > :not(.lab-text) {
+    flex: 0 0 var(--intro-logo-w);
+    max-width: var(--intro-logo-w);
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .lab-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+/* wider, shorter logos (e.g. department wordmark) */
+.lab-intro.wide-logo {
+  --intro-logo-w: 240px;
+}
+
+@media (max-width: 575.98px) {
+  .lab-intro {
+    flex-direction: column;
+
+    > :not(.lab-text) {
+      flex: none;
+    }
+  }
+}
+
+/* Students page: department photo with a one-line caption underneath */
+.dept-photo {
+  max-width: 500px;
+  margin-bottom: 1rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  > p {
+    margin: 0.4rem 0 0;
+    font-size: 0.8rem;
+    text-align: left;
+    white-space: nowrap;
+    opacity: 0.75;
+  }
+}
+
+/* Research page: labeled profile links */
+.research-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+  margin: 0.5rem 0 1.5rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

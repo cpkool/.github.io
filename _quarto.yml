@@ -38,6 +38,10 @@ website:
   
   
 
+  page-footer:
+    left: "© Colin Kuehl"
+    right: 'Last updated <span id="last-updated"></span>'
+
 # Don't touch unless you know what you are doing :) ------------
   search: 
     location: navbar
@@ -61,11 +65,22 @@ format:
   html:
     fontsize: 1.1em
     theme:
-      - pulse
-      - html/styles.scss
+      dark: [pulse, html/styles.scss]
+      light: [pulse, html/styles-light.scss]
     toc: false
     code-link: true
     anchor-sections: true
     fig-cap-location: margin
     reference-location: margin
     footnotes-hover: true
+    include-after-body:
+      text: |
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var el = document.getElementById("last-updated");
+          if (!el) return;
+          var d = new Date(document.lastModified);
+          if (isNaN(d)) return;
+          el.textContent = d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+        });
+        </script>

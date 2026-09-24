@@ -1,5 +1,5 @@
 /*-- scss:defaults --*/
-@import "../_theme-defaults.scss";
+@import "../_theme-defaults-light.scss";
 
 /*-- scss:mixins --*/
 @import "../_theme-mixins.scss";
@@ -9,3 +9,9 @@
 
 // Page-level tweaks shared by the dark and light themes
 @import "../_site-extras.scss";
+
+// Keep the dark-green navbar readable in light mode
+.navbar-brand,
+.navbar-brand .navbar-title {
+  color: #ffffff;
+}
