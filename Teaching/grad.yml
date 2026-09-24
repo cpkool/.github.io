@@ -6,6 +6,17 @@
   semester:
     - name: Fall 2025
       url: syllabi/Syll641F25.pdf
+    - name: Fall 2026
+      url: https://pols641.colinkuehl.com
+      
+- title: "Research Methodology for Public Policy"
+  description: "An introduction to the basics of research design and quantitative methodology used in public policy research.A focus on proper conduct of research using statistics to understand issues of public importance."
+  university: Chiang Mai University School of Public Policy
+  number: POLS 684
+  logo: logos/cmu26.jpg
+  semester:
+  - name: Summer 2026
+    url: https://cmu26.colinkuehl.com/syllabus.html
 
 - title: "International Political Economy"
   description: "A systematic introduction to the political economy of international relations. Students are introduced to the core issues of the subfield such as trade, finance, governance, development, and the environment."
@@ -30,6 +41,7 @@
   description: "The course is a graduate-level survey of International Relations (IR) as a disciplinary subfield of Political Science. Centrally, the course explores the evolution of and dialogue between central paradigmatic traditions in IR theory. Also serves as the foundation for preparation for the Ph.D. candidacy exam in international relations."
   university: Northern Illinois University
   number: POLS 680
+  logo: logos/pols680.png
   semester:
   - name: Fall 2021
     url: syllabi/syll680.pdf

@@ -1,28 +1,48 @@
 ---
 title: Student Research
 lightbox: true
+toc: true
+toc-location: right
 ---
 
-<img src="polsdept.jpeg" style="width: 500px; height: auto;" />
+::: {.dept-photo}
+![](polsdept.jpeg){.no-lightbox fig-alt="NIU Political Science faculty and graduate students"}
+
+NIU Political Science Faculty and Graduate Students
+:::
 
 ## MA and PhD Supervision
+
+::: {.lab-intro .wide-logo}
+![](niupols.png){.no-lightbox fig-alt="NIU Department of Political Science"}
+
+::: {.lab-text}
 The [Political Science department at NIU](https://www.niu.edu/clas/polisci/academics/graduate/index.shtml) has a long and prestigious tradition of Masters and PhD level graduate training. Our students go onto successful careers in academia, public service, etc all over the world. 
 
-I am particularly interested in working with students focused on global environmental issues, including those from Southeast Asia and the rest of the developing world. Please get in touch prior to applying if you have interest in joining our program or working directly with me as a supervisor. 
+I work with students researching a wide variety of topics, but am particularly interested in working with students focused on global environmental issues or other topics aligned with my own research interests. This especially includes substantive interests in Southeast Asia, the rest of the developing world, and/or those employing an interdisciplinary approach. Please get in touch prior to applying if you have interest in joining our program or working directly with me as a supervisor. 
+:::
+:::
 
 
 ----
 
-## Undergraduate Research
+## Undergraduate Research Lab
 
 
-<img src="lablogo.png" style="width: 500px; height: auto;" />
+::: {.lab-intro}
+![](lablogo.png){.lab-logo .no-lightbox}
 
+::: {.lab-text}
 Most semesters I oversee an undergraduate research lab. This is a group of three to five undergraduates working on various environmental policy research projects. Despite the corny name, the Kuehl Earth Lab endeavors to take on ambitious empirical research focused on using the tools of social science to improve the natural environment. I am always looking for motivated undergraduate students interested in contributing. If you are interested in joining, as either a research assistant or independent researcher, please email or stop by office hours. 
+:::
+:::
 
 ::: {layout-ncol=4 layout-valign="top"}
 ![ ](thailunch.jpg)
+
 ![ ](limeng.jpg)
+
 ![ ](jonlab.JPG)
+
 ![ ](testri.JPG)
 :::

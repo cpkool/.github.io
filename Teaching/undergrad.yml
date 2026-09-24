@@ -3,6 +3,7 @@
   description: "Environmental Studies course uses an interdisciplinary approach to understand the social basis of environmental problems and solutions. Focus on policy making in the United States with an introduction to law as well as international and comparative environmental politics."
   university: Northern Illinois University
   number: ENVS 304
+  logo: logos/envs304.png
   semester:
     - name: "Fall 2025"
       url: syllabi/syll304f25.pdf
@@ -10,7 +11,8 @@
 - title: "Global Environmental Politics"
   description: "Survey of the most salient issues in Global Environmental Politics with a focus on varying governance structures and contemporary debates."
   university: Northern Illinois University
-  number: POLS 385/ENVS 385 
+  number: POLS 385/ENVS 385
+  logo: logos/pols385.png
   semester:
     - name: "Spring 2024"
       url: syllabi/syll385.pdf
@@ -19,6 +21,7 @@
   description: "An introduction to theoretical debates and contemporary issues in the study of international politics"
   university: Northern Illinois University
   number: POLS 285
+  logo: logos/pols285.png
   semester:
     - name: "Spring 2025"
       url: syllabi/syll285s25.pdf
@@ -27,6 +30,7 @@
   description: "An introduction to the role of science in contemporary society and politics focused on two interrated questions: What is the role of science in U.S. policymaking and regulation? And what is the role of public policy in the conduct of science?"
   university: Northern Illinois University
   number: POLS 324
+  logo: logos/pols324.jpg
   semester:
     - name: "Fall 2025"
       url: syllabi/syll324F25.pdf
@@ -35,6 +39,7 @@
   description: "A theoretically informed and empirically driven overview of the often dynamic and reciprocal interaction between international relations and the global economy."
   university: Northern Illinois University
   number: POLS 383
+  logo: logos/PolsIPE.png
   semester:
     - name: "Fall 2025"
       url: syllabi/syll383f24.pdf
