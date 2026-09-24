@@ -8,9 +8,10 @@
       url: syllabi/Syll641F25.pdf
 
 - title: "International Political Economy"
-  description: "A systematic introduction to the political economy of international relations. Students will be introduced to the core issues of the subfield such as trade, finance, governance, development, the environment"
+  description: "A systematic introduction to the political economy of international relations. Students are introduced to the core issues of the subfield such as trade, finance, governance, development, and the environment."
   university: Northern Illinois University
   number: POLS 684
+  logo: logos/pols684.jpeg
   semester:
   - name: Spring 2023
     url: syllabi/syll684.pdf
@@ -20,7 +21,7 @@
   description: "Regression analysis techniques in political research. Simple bivariate statistical models through structural modeling."
   university: Northern Illinois University
   number: POLS 642
-  logo: logos/pols642.jpg
+  logo: logos/pols642.png
   semester:
   - name: Spring 2024
     url: syllabi/syll642.pdf

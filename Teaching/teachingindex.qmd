@@ -1,18 +1,18 @@
 ---
 title: "Teaching"
 listing:
-  - id: Undergraduate Courses
+  - id: Undergraduate
     contents: undergrad.yml
     sort: "date desc"
     template: ./listing.ejs
-  - id: Graduate Courses
+  - id: Graduate
     contents: grad.yml
     sort: "date desc"
     template: ./listing.ejs
 page-layout: full
 toc: true
 toc-location: right
-title-block-banner: "$mblue"
+
 
 ---
 

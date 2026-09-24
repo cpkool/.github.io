@@ -2,6 +2,7 @@
 <div class="teaching">
     <% for (const course of items) { %>
     <div class="course-entry">
+        <% if (course.logo) { %>
         <div class="logo">
             <% if (course.url) { %>
             <a href="<%= course.url %>" target="_blank"><img src="<%= course.logo %>" alt="<%= course.title %>" title="<%= course.title %>" /></a>
@@ -9,6 +10,7 @@
             <img src="<%= course.logo %>" alt="<%= course.title %>" title="<%= course.title %>" />
             <% } %>
         </div>
+        <% } %>
         <div class="body">
             <p class="course-title">
                 <% if (course.url) { %>
