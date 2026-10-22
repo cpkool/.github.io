@@ -1,0 +1,134 @@
+<!-- Click-to-enlarge for course logos on the Teaching page.
+     Also applies to any image given the class "zoomable".
+     Paired with the .ck-zoom-* rules in _site-extras.scss -->
+<script>
+(function () {
+  var SELECTOR = ".course-entry .logo img, img.zoomable";
+  var MIN_WIDTH = 480;   // small logos still open noticeably larger than the thumbnail
+  var MAX_WIDTH = 1200;  // never balloon past this, however large the file is
+  var overlay = null;
+  var lastTrigger = null;
+
+  function fit(img, naturalW, naturalH) {
+    if (!naturalW || !naturalH) return;
+    var availW = Math.min(window.innerWidth * 0.92, MAX_WIDTH);
+    var availH = window.innerHeight * 0.85;
+    var width = Math.min(Math.max(naturalW, MIN_WIDTH), availW);
+    if (width / naturalW * naturalH > availH) {
+      width = availH / naturalH * naturalW;
+    }
+    img.style.width = Math.round(width) + "px";
+    img.style.height = "auto";
+  }
+
+  function close() {
+    if (!overlay) return;
+    var node = overlay;
+    overlay = null;
+    node.classList.remove("is-open");
+    document.body.classList.remove("ck-zoom-open");
+    window.setTimeout(function () {
+      if (node.parentNode) node.parentNode.removeChild(node);
+    }, 200);
+    if (lastTrigger && typeof lastTrigger.focus === "function") lastTrigger.focus();
+    lastTrigger = null;
+  }
+
+  function open(thumb) {
+    close();
+    lastTrigger = thumb;
+
+    overlay = document.createElement("div");
+    overlay.className = "ck-zoom-overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+
+    var close_btn = document.createElement("button");
+    close_btn.type = "button";
+    close_btn.className = "ck-zoom-close";
+    close_btn.setAttribute("aria-label", "Close");
+    close_btn.innerHTML = "&times;";
+
+    var figure = document.createElement("figure");
+
+    var big = document.createElement("img");
+    var label = thumb.getAttribute("title") || thumb.getAttribute("alt") || "";
+    big.alt = label;
+    big.src = thumb.currentSrc || thumb.src;
+    if (big.complete && big.naturalWidth) {
+      fit(big, big.naturalWidth, big.naturalHeight);
+    } else {
+      big.addEventListener("load", function () {
+        fit(big, big.naturalWidth, big.naturalHeight);
+      });
+    }
+    figure.appendChild(big);
+
+    if (label) {
+      var caption = document.createElement("figcaption");
+      caption.textContent = label;
+      figure.appendChild(caption);
+      overlay.setAttribute("aria-label", label);
+    }
+
+    overlay.appendChild(close_btn);
+    overlay.appendChild(figure);
+    overlay.addEventListener("click", close);
+    document.body.appendChild(overlay);
+    document.body.classList.add("ck-zoom-open");
+
+    // let the browser paint the starting state so the fade-in runs
+    window.requestAnimationFrame(function () {
+      if (overlay) overlay.classList.add("is-open");
+    });
+    close_btn.focus();
+  }
+
+  function prepare() {
+    var thumbs = document.querySelectorAll(SELECTOR);
+    for (var i = 0; i < thumbs.length; i++) {
+      var thumb = thumbs[i];
+      if (thumb.getAttribute("data-ck-zoom") === "ready") continue;
+      thumb.setAttribute("data-ck-zoom", "ready");
+      // images are not focusable by default, so make them keyboard-reachable
+      if (!thumb.closest("a")) {
+        thumb.setAttribute("tabindex", "0");
+        thumb.setAttribute("role", "button");
+      }
+      var label = thumb.getAttribute("title") || thumb.getAttribute("alt") || "image";
+      thumb.setAttribute("aria-label", "View larger: " + label);
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    var thumb = event.target.closest ? event.target.closest(SELECTOR) : null;
+    if (!thumb) return;
+    event.preventDefault();
+    open(thumb);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && overlay) {
+      close();
+      return;
+    }
+    if (event.key !== "Enter" && event.key !== " " && event.key !== "Spacebar") return;
+    var thumb = event.target.closest ? event.target.closest(SELECTOR) : null;
+    if (!thumb) return;
+    event.preventDefault();
+    open(thumb);
+  });
+
+  window.addEventListener("resize", function () {
+    if (!overlay) return;
+    var big = overlay.querySelector("img");
+    if (big) fit(big, big.naturalWidth, big.naturalHeight);
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", prepare);
+  } else {
+    prepare();
+  }
+})();
+</script>

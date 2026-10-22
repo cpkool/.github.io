@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,12 +44,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-06fd5234e8e9982fe58e4738a72dbab4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-47eb6e702268ffa774c448223b5f86b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-16c967a24886a762da8d65ece22d65b6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-46111cf4c5e4e5ce06fbb07ee23c3f81.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -141,7 +144,7 @@ gtag('config', 'G-8DT4TTTYK2', { 'anonymize_ip': true});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -765,6 +768,140 @@ window.Quarto = {
 </section>
 
 </main> <!-- /main -->
+<!-- Click-to-enlarge for course logos on the Teaching page.
+     Also applies to any image given the class "zoomable".
+     Paired with the .ck-zoom-* rules in _site-extras.scss -->
+<script>
+(function () {
+  var SELECTOR = ".course-entry .logo img, img.zoomable";
+  var MIN_WIDTH = 480;   // small logos still open noticeably larger than the thumbnail
+  var MAX_WIDTH = 1200;  // never balloon past this, however large the file is
+  var overlay = null;
+  var lastTrigger = null;
+
+  function fit(img, naturalW, naturalH) {
+    if (!naturalW || !naturalH) return;
+    var availW = Math.min(window.innerWidth * 0.92, MAX_WIDTH);
+    var availH = window.innerHeight * 0.85;
+    var width = Math.min(Math.max(naturalW, MIN_WIDTH), availW);
+    if (width / naturalW * naturalH > availH) {
+      width = availH / naturalH * naturalW;
+    }
+    img.style.width = Math.round(width) + "px";
+    img.style.height = "auto";
+  }
+
+  function close() {
+    if (!overlay) return;
+    var node = overlay;
+    overlay = null;
+    node.classList.remove("is-open");
+    document.body.classList.remove("ck-zoom-open");
+    window.setTimeout(function () {
+      if (node.parentNode) node.parentNode.removeChild(node);
+    }, 200);
+    if (lastTrigger && typeof lastTrigger.focus === "function") lastTrigger.focus();
+    lastTrigger = null;
+  }
+
+  function open(thumb) {
+    close();
+    lastTrigger = thumb;
+
+    overlay = document.createElement("div");
+    overlay.className = "ck-zoom-overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+
+    var close_btn = document.createElement("button");
+    close_btn.type = "button";
+    close_btn.className = "ck-zoom-close";
+    close_btn.setAttribute("aria-label", "Close");
+    close_btn.innerHTML = "&times;";
+
+    var figure = document.createElement("figure");
+
+    var big = document.createElement("img");
+    var label = thumb.getAttribute("title") || thumb.getAttribute("alt") || "";
+    big.alt = label;
+    big.src = thumb.currentSrc || thumb.src;
+    if (big.complete && big.naturalWidth) {
+      fit(big, big.naturalWidth, big.naturalHeight);
+    } else {
+      big.addEventListener("load", function () {
+        fit(big, big.naturalWidth, big.naturalHeight);
+      });
+    }
+    figure.appendChild(big);
+
+    if (label) {
+      var caption = document.createElement("figcaption");
+      caption.textContent = label;
+      figure.appendChild(caption);
+      overlay.setAttribute("aria-label", label);
+    }
+
+    overlay.appendChild(close_btn);
+    overlay.appendChild(figure);
+    overlay.addEventListener("click", close);
+    document.body.appendChild(overlay);
+    document.body.classList.add("ck-zoom-open");
+
+    // let the browser paint the starting state so the fade-in runs
+    window.requestAnimationFrame(function () {
+      if (overlay) overlay.classList.add("is-open");
+    });
+    close_btn.focus();
+  }
+
+  function prepare() {
+    var thumbs = document.querySelectorAll(SELECTOR);
+    for (var i = 0; i < thumbs.length; i++) {
+      var thumb = thumbs[i];
+      if (thumb.getAttribute("data-ck-zoom") === "ready") continue;
+      thumb.setAttribute("data-ck-zoom", "ready");
+      // images are not focusable by default, so make them keyboard-reachable
+      if (!thumb.closest("a")) {
+        thumb.setAttribute("tabindex", "0");
+        thumb.setAttribute("role", "button");
+      }
+      var label = thumb.getAttribute("title") || thumb.getAttribute("alt") || "image";
+      thumb.setAttribute("aria-label", "View larger: " + label);
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    var thumb = event.target.closest ? event.target.closest(SELECTOR) : null;
+    if (!thumb) return;
+    event.preventDefault();
+    open(thumb);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && overlay) {
+      close();
+      return;
+    }
+    if (event.key !== "Enter" && event.key !== " " && event.key !== "Spacebar") return;
+    var thumb = event.target.closest ? event.target.closest(SELECTOR) : null;
+    if (!thumb) return;
+    event.preventDefault();
+    open(thumb);
+  });
+
+  window.addEventListener("resize", function () {
+    if (!overlay) return;
+    var big = overlay.querySelector("img");
+    if (big) fit(big, big.naturalWidth, big.naturalHeight);
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", prepare);
+  } else {
+    prepare();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
